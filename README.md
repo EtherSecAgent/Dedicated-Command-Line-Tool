@@ -3,14 +3,14 @@ A powershell script that helps manage, search and configure Halo Online servers
 
 Coded by EtherSecAgent 
 
-Help from StackOverflow
+Help from StackOverflow (Lots) 
 
-
+Firewall Script by SV3 Modded by EtherSecAgent
 
 #Description
-This is a tool that Ive made to help manage my Haloinfect servers, I prefer to  use SSH and manage my server instead of VNC/RDP. 
+Powershell Menu script to helps manage, search and configure Halo Online servers via ssh/PSsession or via RDP/VNC
 
-#Requirements 
+*Requirements* 
 -Halo Online dedicated tools or 0.6.0+
 Windows 7, 8, 10
 Windows Server 2008, 2012, 2016 
@@ -32,7 +32,11 @@ Windows Powershell 4.0+
 -Configure Server ( Voip, Sprint, Name )
 
 
-#Installation 
+*Installation* 
+
 Add files to Halo Online directory 
 
+*ChangeLog*
 
+v0.005
+-Fixes Guardian Cache Issue

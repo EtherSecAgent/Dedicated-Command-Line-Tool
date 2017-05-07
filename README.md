@@ -40,3 +40,4 @@ Add files to Halo Online directory
 
 v0.005
 -Fixes Guardian Cache Issue
+-Adds "Running Since" to Guardian Mode

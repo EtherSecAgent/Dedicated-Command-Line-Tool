@@ -127,18 +127,18 @@ $date = Get-Date -Format G
  echo "    3. Server Info"
  echo "    4. Guardian Mode"
  echo "    5. Ban Hammer"
- echo "    6. Exit"      
+ echo "    6. Exit"          
  echo ""  
  echo ""  
  echo "---------------------------------------------------------"  
- $answer = read-host "Please Make a Selection"
- if ($answer -eq 0){firewall}  
+ $answer = read-host "Please Make a Selection" 
  if ($answer -eq 1){logmenu}   
  if ($answer -eq 2){servermenu}
  if ($answer -eq 3){serverreport}
  if ($answer -eq 4){guardian}         
  if ($answer -eq 5){banhammer}
- if ($answer -eq 6){Exit}       
+ if ($answer -eq 0){firewall}
+ if ($answer -eq 6){exit}       
  else {write-host -ForegroundColor green "Command Sent, looping back to menu in 10"  
        sleep 10  
        mainmenu  
@@ -505,7 +505,7 @@ $date = Get-Date -Format G
  # Guardian Mode, keeps halo online running 
  Function guardian {
 while ($true) {
-
+    cls
     if ((Get-Process -Name eldorado -ErrorAction SilentlyContinue) -eq $null) 
     {
 
@@ -518,21 +518,35 @@ while ($true) {
     }
     else {write-host -ForegroundColor Green "Guardian Mode is Activated, Server Is Running (Checking in 15 Secs)" 
              
-             Write-Host -ForegroundColor cyan "Name" ; $data = convertfrom-json $server.Content ; $data.Name
-             Write-Host -ForegroundColor cyan "Player Count" ; $data = convertfrom-json $server.Content ; $data.numPlayers
-             Write-Host -ForegroundColor cyan "Variant" ; $data = convertfrom-json $server.Content ; $data.variant
-             Write-Host -ForegroundColor cyan "Map" ; $data = convertfrom-json $server.Content ; $data.map
-             Write-Host -ForegroundColor cyan "Gametype" ; $data = convertfrom-json $server.Content ; $data.variantType
-             Write-Host -ForegroundColor cyan "Status" ; $data = convertfrom-json $server.Content ; $data.status  
-            Get-Content .\chat.log -Tail 5 
+             Write-Host -ForegroundColor cyan "Name" ;  (Invoke-WebRequest -Uri 127.0.0.1:11775 | ConvertFrom-Json).Name
+             Write-Host -ForegroundColor cyan "Player Count:" ; (Invoke-WebRequest -Uri 127.0.0.1:11775 | ConvertFrom-Json).numPlayers
+             Write-Host -ForegroundColor cyan "Variant" ; (Invoke-WebRequest -Uri 127.0.0.1:11775 | ConvertFrom-Json).variant
+             Write-Host -ForegroundColor cyan "Map" ; (Invoke-WebRequest -Uri 127.0.0.1:11775 | ConvertFrom-Json).map
+             Write-Host -ForegroundColor cyan "GameType" ; (Invoke-WebRequest -Uri 127.0.0.1:11775 | ConvertFrom-Json).variantType
+             Write-Host -ForegroundColor cyan "Status" ; (Invoke-WebRequest -Uri 127.0.0.1:11775 | ConvertFrom-Json).status 
+            Get-Content .\chat.log -Tail 5
+             Write-Host -ForegroundColor cyan "Running Since" ; Get-Content .\dedicatedServer.log -Tail 1
          }
     
-    Start-Sleep -Seconds 15
+    Sleep 13
     cls
+    cachebreaker
 
+    } 
     }
-    }
-  
+
+
+#cachebreaker fixes issues with guardian mode not updating server data
+Function cachebreaker {
+cls
+write-host -ForegroundColor Green "Keep It Clean, Running Check"
+Sleep 1
+guardian
+}
+
+
+
+ 
 #banhammer adds ip to halo online banlist and logs ban in ban hammer log
 Function banhammer {
 $localbanip = Read-Host -Prompt 'IP to ban' ; Add-Content .\banlist.txt "ip $localbanip"
@@ -561,7 +575,7 @@ param ($InputFile = 'BlockList.txt', $RuleName, $ProfileType = "any", $Interface
 $ipban = Read-Host -Prompt 'Enter IP to ban'; Add-Content .\Blocklist.txt "$ipban"
 $name = Read-Host -Prompt "Name"
 $reason = Read-Host -Prompt "Reason USE _ for spaces" 
-Add-Content .\BanHammer.log "$name banned via firewall for $reason ip:$localbanip $date"
+Add-Content .\BanHammer.log "$name banned via firewall for $reason ip:$ipban $date"
 
 
 
@@ -598,7 +612,7 @@ if ($linecount -eq 0) { "`nZero IP addresses to block, quitting...`n" ; exit }
 # that netsh.exe errors begin to occur with more than 400 IPv4 ranges per rule, and 
 # this number might still be too large when using IPv6 or the Start-to-End format, so 
 # default to only 100 ranges per rule, but feel free to edit the following variable:
-$MaxRangesPerRule = 100
+$MaxRangesPerRule = 200
 
 $i = 1                     # Rule number counter, when more than one rule must be created, e.g., BlockList-#001.
 $start = 1                 # For array slicing out of IP $ranges.

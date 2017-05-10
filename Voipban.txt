@@ -1,1 +1,1 @@
-##ips will be added here from the Voip Ban script preventing users from connecting back to Voip after Disconnecting 
+##ips will be added here from the Voip Ban script preventing users from connecting back to Voip after Disconnecting _ 

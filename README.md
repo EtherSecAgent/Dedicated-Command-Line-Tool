@@ -24,7 +24,7 @@ Windows Powershell 4.0+
 ----------------------------------
 -Banning
 -Ban Logging
--Firewall Ban
+-Firewall Ban ( Windows Firewall must be Enabled, this will create a block rule for ips added or block ips from connecting to voip client from voip ban function.
 -Search Logs
 -Live Chat 
 -Guardian Mode, checks if server is running, and displays data from server ( player count, map, variant, etc ) 
@@ -37,6 +37,11 @@ Windows Powershell 4.0+
 Add files to Halo Online directory 
 
 *ChangeLog*
+
+v0.006
+-Fixed Guardian Mode crashes 
+-Added Firewall ban menu
+-Added Quick switch from Listplayer Menu to Firewall Ban menu
 
 v0.005
 -Fixes Guardian Cache Issue

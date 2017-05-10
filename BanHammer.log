@@ -1,6 +1,7 @@
+### Ban log from users banned from DCLT, local halo online ban hammer function and from the firewall function 
 BanHammer Log 
 ----------------------------------------------------------
 Example:
 Name:              Reason:                   ip: Date:     Time:
-Testnet banned for Hacking_VoIPSpam_Trolling ip: 4/29/2017 10:37:17 PM
-Pooper banned for hacking ip:29.9.9.29 4/29/2017 10:49:54 PM
+Testnet banned for Hacking_VoIPSpam_Trolling ip:00.00.00.00 4/29/2017 10:37:17 PM
+Pooper banned for Jumphacking ip:29.9.9.29 4/29/2017 10:49:54 PM

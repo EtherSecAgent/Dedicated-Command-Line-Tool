@@ -1,0 +1,1 @@
+## ips added to Firewall will be added here from the firewall script preventing users from connecting back to the Game after Disconnecting

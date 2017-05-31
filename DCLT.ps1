@@ -182,8 +182,7 @@ $date = Get-Date -Format G
  cls  
  echo "---------------------------------------------------------"  
  echo ""  
- echo "    Chat Log Options"
- echo ""      
+ echo "    Chat Log Options"      
  echo "    1. Pick a Number of lines to View"  
  echo "    2. Search Chat Log"
  echo "    3. View Chat Live - WARNING HAVE TO CLOSE SCRIPT WHEN DONE"
@@ -218,9 +217,8 @@ $date = Get-Date -Format G
  cls  
  echo "---------------------------------------------------------"  
  echo ""  
- echo "    Debug Log Options"
- echo ""      
- echo "    1. Pick a Number of lines to View"  
+ echo "    Debug Log Options"      
+ echo "    1. Pick A Number Of Lines To View"  
  echo "    2. Search Debug Log"
  echo "    3. View Debug Live - WARNING HAVE TO CLOSE SCRIPT WHEN DONE"
  echo "    4. View Whole Debug log - WARNING BIG FILES = LONG TEXT"
@@ -254,12 +252,11 @@ $date = Get-Date -Format G
  cls  
  echo "---------------------------------------------------------"  
  echo ""  
- echo "    Dedicated Server Log Options"
- echo ""      
- echo "    1. Pick a Number of lines to View"  
- echo "    2. Search dedicated server Log"
- echo "    3. View dedicated server Live - WARNING HAVE TO CLOSE SCRIPT WHEN DONE"
- echo "    4. View Whole dedicated server log - WARNING BIG FILES = LONG TEXT"
+ echo "    Dedicated Server Log Options"      
+ echo "    1. Pick A Number Of Lines To View"  
+ echo "    2. Search Dedicated Server Log"
+ echo "    3. View Dedicated Server Live - WARNING HAVE TO CLOSE SCRIPT WHEN DONE"
+ echo "    4. View Whole Dedicated Server Log - WARNING BIG FILES = LONG TEXT"
  echo "    5. Log Menu"
  echo "    6. Main Menu"
  echo "    7. Exit"     
@@ -290,12 +287,11 @@ $date = Get-Date -Format G
  cls  
  echo "---------------------------------------------------------"  
  echo ""  
- echo "    Game Events Log Options"
- echo ""      
- echo "    1. Pick a Number of lines to View"  
- echo "    2. Search game events Log"
- echo "    3. View game events Live - WARNING HAVE TO CLOSE SCRIPT WHEN DONE"
- echo "    4. View Whole game events log - WARNING BIG FILES = LONG TEXT"
+ echo "    Game Events Log Options"      
+ echo "    1. Pick A Number Of Lines To View"  
+ echo "    2. Search Game Events Log"
+ echo "    3. View Game Events Live - WARNING HAVE TO CLOSE SCRIPT WHEN DONE"
+ echo "    4. View Whole Game Events Log - WARNING BIG FILES = LONG TEXT"
  echo "    5. Log Menu"
  echo "    6. Main Menu"
  echo "    7. Exit"     
@@ -326,12 +322,11 @@ $date = Get-Date -Format G
  cls  
  echo "---------------------------------------------------------"  
  echo ""  
- echo "    Dorito Log Options"
- echo ""      
- echo "    1. Pick a Number of lines to View"  
- echo "    2. Search dorito Log"
- echo "    3. View dorito Live - WARNING HAVE TO CLOSE SCRIPT WHEN DONE"
- echo "    4. View Whole dorito log - WARNING BIG FILES = LONG TEXT"
+ echo "    Dorito Log Options"      
+ echo "    1. Pick A Number Of Lines To View"  
+ echo "    2. Search Dorito Log"
+ echo "    3. View Dorito Live - WARNING HAVE TO CLOSE SCRIPT WHEN DONE"
+ echo "    4. View Whole Dorito Log - WARNING BIG FILES = LONG TEXT"
  echo "    5. Log Menu"
  echo "    6. Main Menu"
  echo "    7. Exit"     
@@ -362,9 +357,8 @@ $date = Get-Date -Format G
  cls  
  echo "---------------------------------------------------------"  
  echo ""  
- echo "    Players Log Options"
- echo ""      
- echo "    1. Pick a Number of lines to View"  
+ echo "    Players Log Options"      
+ echo "    1. Pick A Number Of Lines To View"  
  echo "    2. Search Player Log"
  echo "    3. View Players Live - WARNING HAVE TO CLOSE SCRIPT WHEN DONE"
  echo "    4. View Whole Player log - WARNING BIG FILES = LONG TEXT"
@@ -440,11 +434,10 @@ $date = Get-Date -Format G
  cls  
  echo "---------------------------------------------------------"  
  echo ""  
- echo "    Server Options (RESTART MAY BE REQUIRED)"
- echo ""                
+ echo "    Server Options (RESTART MAY BE REQUIRED)"                
  echo "    1. Configure Voip"
- echo "    2. Confifure Sprint"
- echo "    3. Configure Assination"
+ echo "    2. Configure Sprint"
+ echo "    3. Configure Assassination"
  echo "    4. Back"        
  echo ""  
  echo ""  
@@ -466,7 +459,6 @@ $date = Get-Date -Format G
  echo "---------------------------------------------------------"  
  echo ""  
  echo "     Server Info       "
- echo ""
  echo "    1. Main Menu"
  echo "    2. Server Report"    
  echo "    3. Players Status"
@@ -487,7 +479,7 @@ $date = Get-Date -Format G
   Write-Host -ForegroundColor cyan "Sprint" ;$data = convertfrom-json $server.Content ; $data.sprintEnabled
   Write-Host -ForegroundColor cyan "Sprint Unlimated" ; $data = convertfrom-json $server.Content ; $data.sprintUnlimitedEnabled
   Write-Host -ForegroundColor cyan "VoIP" ; $data = convertfrom-json $server.Content ; $data.VoIP
-  Write-Host -ForegroundColor cyan "Assinations" ; $data = convertfrom-json $server.Content ; $data.assassinationEnabled	
+  Write-Host -ForegroundColor cyan "Assassinations" ; $data = convertfrom-json $server.Content ; $data.assAssAssAssAssassinationEnabled	
   Write-Host -ForegroundColor cyan "Dedicated" ; $data = convertfrom-json $server.Content ; $data.isDedicated	
   Write-Host -ForegroundColor cyan "Running Since" ; Get-Content .\dedicatedServer.log -Tail 1}
  if ($answer -eq 2){dataormain}
@@ -540,8 +532,7 @@ while ($true) {
  cls  
  echo "---------------------------------------------------------"  
  echo ""  
- echo "    Firewall Menu"
- echo ""                
+ echo "    Firewall Menu"                
  echo "    1. Main Menu"
  echo "    2. Perma Ban"
  echo "    3. Voip Ban"

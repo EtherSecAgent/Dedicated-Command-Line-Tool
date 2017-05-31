@@ -1,4 +1,4 @@
-#var
+#var code cleanup
 $prefs = Get-Content .\dewrito_prefs.cfg
 $server = Invoke-WebRequest -Uri 127.0.0.1:11775
 $date = Get-Date -Format G

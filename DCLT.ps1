@@ -115,7 +115,32 @@ $date = Get-Date -Format G
                 } 
                 sleep 5
                 confvoip 
-                }                                                                                
+                }
+                
+  function servernamemenu {
+ 
+$prefs = Get-Content .\dewrito_prefs.cfg
+
+# Get the line using Where. * is wildcard
+$oldServerLine = $prefs | Where-object {$_ -like "Server.Name*"}
+
+$servername = Read-Host -Prompt "Enter Server Name use Quotes"
+
+Write-Host $servername
+
+# Replace old line with new line. ` is the escape character so you get " as expected.
+$newPrefs = $prefs.Replace($oldServerLine,"Server.Name `"$servername`"")
+
+$newPrefs
+Write-Host -ForegroundColor DarkGreen "Named Changed to $servename"
+sleep 5 
+subservermenu 
+ 
+ 
+ }
+ 
+ 
+                                                                                                
  #Mainmenu function. Contains the screen output for the menu and waits for and handles user input.  
  function mainmenu{  
  cls  
@@ -196,7 +221,7 @@ $date = Get-Date -Format G
  $answer = read-host "Please Make a Selection"  
  if ($answer -eq 1){$SearchQ = Read-Host -Prompt 'Pick a number of lines' ; Get-Content .\chat.log -Tail "$SearchQ"}
  if ($answer -eq 1){chatorlog}  
- if ($answer -eq 2){$Search = Read-Host -Prompt 'Input your search' ; Get-Content .\chat.log | Select-String "$Search"}
+ if ($answer -eq 2){$Search = Read-Host -Prompt 'Input your search' ; (Get-Content .\chat.log | Select-String "$Search").count}
  if ($answer -eq 2){chatorlog} 
  if ($answer -eq 3){Get-Content .\chat.log -Wait -Tail 2}
  if ($answer -eq 3){chatorlog}
@@ -434,19 +459,21 @@ $date = Get-Date -Format G
  cls  
  echo "---------------------------------------------------------"  
  echo ""  
- echo "    Server Options (RESTART MAY BE REQUIRED)"                
- echo "    1. Configure Voip"
- echo "    2. Configure Sprint"
- echo "    3. Configure Assassination"
- echo "    4. Back"        
+ echo "    Server Options (RESTART MAY BE REQUIRED)"
+ echo "    1. Configure Server Name"                
+ echo "    2. Configure Voip"
+ echo "    3. Configure Sprint"
+ echo "    4. Configure Assassination"
+ echo "    5. Back"        
  echo ""  
  echo ""  
  echo "---------------------------------------------------------"  
  $answer = read-host "Please Make a Selection"
- if ($answer -eq 1){confvoip}  
- if ($answer -eq 2){servermenu}
+ if ($answer -eq 1){servernamemenu}
+ if ($answer -eq 2){confvoip}  
  if ($answer -eq 3){servermenu}
- if ($answer -eq 4){servermenu}        
+ if ($answer -eq 4){servermenu}
+ if ($answer -eq 5){servermenu}        
  else {write-host -ForegroundColor green "Command Sent" 
      sleep 10  
      subservermenu 

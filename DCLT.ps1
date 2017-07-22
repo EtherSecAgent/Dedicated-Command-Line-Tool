@@ -256,7 +256,7 @@ subservermenu
  $answer = read-host "Please Make a Selection"  
  if ($answer -eq 1){$SearchQ = Read-Host -Prompt 'Pick a number of lines' ; Get-Content .\debug.log -Tail "$SearchQ"}
  if ($answer -eq 1){debugorlog}  
- if ($answer -eq 2){$Search = Read-Host -Prompt 'Input your search' ; Get-Content .\debug.log | Select-String "$Search"}
+ if ($answer -eq 2){$Search = Read-Host -Prompt 'Input your search' ; Get-Content .\debug.log | Select-String "$Search" ; (Get-Content .\debug.log | Select-String "$Search").count}
  if ($answer -eq 2){debugorlog} 
  if ($answer -eq 3){Get-Content .\debug.log -Wait -Tail 2}
  if ($answer -eq 3){debugorlog}
@@ -291,7 +291,7 @@ subservermenu
  $answer = read-host "Please Make a Selection"  
  if ($answer -eq 1){$SearchQ = Read-Host -Prompt 'Pick a number of lines' ; Get-Content .\dedicatedserver.log -Tail "$SearchQ"}
  if ($answer -eq 1){dedicatedserverorlog}  
- if ($answer -eq 2){$Search = Read-Host -Prompt 'Input your search' ; Get-Content .\dedicatedserver.log | Select-String "$Search"}
+ if ($answer -eq 2){$Search = Read-Host -Prompt 'Input your search' ; Get-Content .\dedicatedserver.log | Select-String "$Search" ; (Get-Content .\dedicatedserver.log | Select-String "$Search").count}
  if ($answer -eq 2){dedicatedserverorlog} 
  if ($answer -eq 3){Get-Content .\dedicatedserver.log -Wait -Tail 2}
  if ($answer -eq 3){dedicatedserverorlog}
@@ -326,7 +326,7 @@ subservermenu
  $answer = read-host "Please Make a Selection"  
  if ($answer -eq 1){$SearchQ = Read-Host -Prompt 'Pick a number of lines' ; Get-Content .\gameEvents.log -Tail "$SearchQ"}
  if ($answer -eq 1){gameeventsorlog}  
- if ($answer -eq 2){$Search = Read-Host -Prompt 'Input your search' ; Get-Content .\gameEvents.log | Select-String "$Search"}
+ if ($answer -eq 2){$Search = Read-Host -Prompt 'Input your search' ; Get-Content .\gameEvents.log | Select-String "$Search" : (Get-Content .\gameEvents.log | Select-String "$Search").count}
  if ($answer -eq 2){gameeventsorlog} 
  if ($answer -eq 3){Get-Content .\gameEvents.log -Wait -Tail 2}
  if ($answer -eq 3){gameEventsorlog}
@@ -361,7 +361,7 @@ subservermenu
  $answer = read-host "Please Make a Selection"  
  if ($answer -eq 1){$SearchQ = Read-Host -Prompt 'Pick a number of lines' ; Get-Content .\dorito.log -Tail "$SearchQ"}
  if ($answer -eq 1){doritoorlog}  
- if ($answer -eq 2){$Search = Read-Host -Prompt 'Input your search' ; Get-Content .\dorito.log | Select-String "$Search"}
+ if ($answer -eq 2){$Search = Read-Host -Prompt 'Input your search' ; Get-Content .\dorito.log | Select-String "$Search" ; (Get-Content .\dorito.log | Select-String "$Search").count}
  if ($answer -eq 2){doritoorlog} 
  if ($answer -eq 3){Get-Content .\dorito.log -Wait -Tail 2}
  if ($answer -eq 3){doritoorlog}
@@ -396,7 +396,7 @@ subservermenu
  $answer = read-host "Please Make a Selection"  
  if ($answer -eq 1){$SearchQ = Read-Host -Prompt 'Pick a number of lines' ; Get-Content .\listplayers.log -Tail "$SearchQ"}
  if ($answer -eq 1){listplayersorlog}  
- if ($answer -eq 2){$Search = Read-Host -Prompt 'Input your search' ; Get-Content .\listplayers.log | Select-String "$Search"}
+ if ($answer -eq 2){$Search = Read-Host -Prompt 'Input your search' ; Get-Content .\listplayers.log | Select-String "$Search" ; (Get-Content .\listplayers.log | Select-String "$Search").count}
  if ($answer -eq 2){listplayersorlog} 
  if ($answer -eq 3){Get-Content .\listplayers.log -Wait -Tail 2}
  if ($answer -eq 3){listplayersorlog}
@@ -747,4 +747,4 @@ do {
    
     sleep 2
                                                 
- mainmenu 
+mainmenu 

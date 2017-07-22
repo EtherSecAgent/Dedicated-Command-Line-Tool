@@ -221,7 +221,7 @@ subservermenu
  $answer = read-host "Please Make a Selection"  
  if ($answer -eq 1){$SearchQ = Read-Host -Prompt 'Pick a number of lines' ; Get-Content .\chat.log -Tail "$SearchQ"}
  if ($answer -eq 1){chatorlog}  
- if ($answer -eq 2){$Search = Read-Host -Prompt 'Input your search' ; (Get-Content .\chat.log | Select-String "$Search").count}
+ if ($answer -eq 2){$Search = Read-Host -Prompt 'Input your search' ; Get-Content .\chat.log | Select-String "$Search" ; (Get-Content .\chat.log | Select-String "$Search").count}
  if ($answer -eq 2){chatorlog} 
  if ($answer -eq 3){Get-Content .\chat.log -Wait -Tail 2}
  if ($answer -eq 3){chatorlog}

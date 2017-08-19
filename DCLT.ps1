@@ -90,7 +90,20 @@ $date = Get-Date -Format G
            else {write-host -foregroundcolor red "Invalid Selection"   
                  exitormain  
                 }  
-                }   
+                }
+                
+  function chatoutfile { 
+  $areyousure = read-host "1.Back 2.Log Menu 3.Output to txt"  
+           if ($areyousure -eq "1"){chatmenu}
+           if ($areyousure -eq "2"){logmenu}
+           if ($areyousure -eq "3"){$Outfile = Read-Host -Prompt 'Name Text File' }  
+           if ($areyousure -eq "3"){Get-Content .\gameEvents.log | Select-String "$Search" | Out-File .\Searches\$Outfile.txt}
+             
+           else {write-host -foregroundcolor red "Invalid Selection"   
+                 exitormain  
+                }  
+                }
+                                 
   function confvoip { 
   cls
   echo "---------------------------------------------------------"  
@@ -222,7 +235,7 @@ subservermenu
  if ($answer -eq 1){$SearchQ = Read-Host -Prompt 'Pick a number of lines' ; Get-Content .\chat.log -Tail "$SearchQ"}
  if ($answer -eq 1){chatorlog}  
  if ($answer -eq 2){$Search = Read-Host -Prompt 'Input your search' ; Get-Content .\chat.log | Select-String "$Search" ; (Get-Content .\chat.log | Select-String "$Search").count}
- if ($answer -eq 2){chatorlog} 
+ if ($answer -eq 2){chatoutfile} 
  if ($answer -eq 3){Get-Content .\chat.log -Wait -Tail 2}
  if ($answer -eq 3){chatorlog}
  if ($answer -eq 4){Get-Content .\chat.log}
